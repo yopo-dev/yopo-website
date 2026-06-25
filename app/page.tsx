@@ -5,6 +5,7 @@ import Showcase from "@/components/Showcase";
 import HowItWorks from "@/components/HowItWorks";
 import WhyYopo from "@/components/WhyYopo";
 import ImpactCounter from "@/components/ImpactCounter";
+import CarbonCalculator from "@/components/CarbonCalculator";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <HowItWorks />
       <WhyYopo />
       <ImpactCounter />
+      <CarbonCalculator />
       <Contact />
       <Footer />
     </main>
