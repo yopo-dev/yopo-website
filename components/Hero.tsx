@@ -1,10 +1,24 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section
-      className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 pt-16"
-      style={{ background: "linear-gradient(160deg, #1B5E20 0%, #2E7D32 50%, #143D16 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-5"
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 pt-16 overflow-hidden">
+      {/* Background building photo */}
+      <Image
+        src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80"
+        alt="Modern high-rise buildings"
+        fill
+        className="object-cover object-center"
+        priority
+      />
+      {/* Dark green overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(160deg, rgba(27,94,32,0.92) 0%, rgba(46,125,50,0.85) 50%, rgba(20,61,22,0.95) 100%)" }}
+      />
+      {/* Dot grid texture */}
+      <div
+        className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: "radial-gradient(circle at 1px 1px, #C59E3C 1px, transparent 0)",
           backgroundSize: "40px 40px",
