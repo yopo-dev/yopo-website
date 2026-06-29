@@ -13,9 +13,9 @@ const products = [
     image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1400&q=85",
     imageAlt: "Building energy systems",
     chips: [
-      { label: "BMS monitoring",        img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80" },
+      { label: "BMS monitoring",        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
       { label: "AI anomaly detection",  img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80" },
-      { label: "Pay on savings only",   img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&q=80" },
+      { label: "Pay on savings only",   img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" },
     ],
     align: "left",
     color: "#1B5E20",
@@ -32,9 +32,9 @@ const products = [
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=85",
     imageAlt: "Modern UAE skyscraper",
     chips: [
-      { label: "Face recognition",  img: "https://images.unsplash.com/photo-1633265486064-086b219458ec?w=400&q=80" },
+      { label: "Face recognition",  img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&q=80" },
       { label: "Resident app",      img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" },
-      { label: "Intercom to phone", img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&q=80" },
+      { label: "Intercom to phone", img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=400&q=80" },
     ],
     align: "right",
     color: "#92701A",
