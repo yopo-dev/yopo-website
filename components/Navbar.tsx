@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -8,19 +9,14 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span
-            className="text-2xl font-bold tracking-tight"
-            style={{ color: "#1B5E20" }}
-          >
-            yopo
-          </span>
-          <span
-            className="text-xs font-semibold uppercase tracking-widest mt-1"
-            style={{ color: "#C59E3C" }}
-          >
-            .app
-          </span>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/yopo-logo.svg"
+            alt="Yopo"
+            width={100}
+            height={36}
+            priority
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
