@@ -2,98 +2,126 @@ import Image from "next/image";
 
 const products = [
   {
-    title: "Energy Intelligence",
-    tagline: "Zero upfront cost",
+    id: "energy",
+    title: "Energy\nIntelligence",
+    tagline: "Your building is wasting energy right now. We find it.",
     stat: "14%",
-    statLabel: "avg. energy saved",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
-    imageAlt: "Building energy control systems",
-    chips: ["AI anomaly detection", "BMS monitoring", "Pay on savings"],
+    statLabel: "avg reduction",
+    stat2: "AED 0",
+    stat2Label: "upfront cost",
+    image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1400&q=85",
+    imageAlt: "Building energy systems",
+    chips: ["BMS monitoring", "AI anomaly detection", "Pay on savings only"],
+    align: "left",
     color: "#1B5E20",
+    accent: "#4CAF50",
   },
   {
-    title: "Building Access",
-    tagline: "Face recognition · Resident app",
+    id: "access",
+    title: "Building\nAccess",
+    tagline: "Walk in. Your face is your key.",
     stat: "2s",
-    statLabel: "avg. entry time",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80",
-    imageAlt: "Modern UAE high-rise building entrance",
-    chips: ["Face recognition", "Mobile intercom", "Manager dashboard"],
-    color: "#C59E3C",
+    statLabel: "avg entry",
+    stat2: "100%",
+    stat2Label: "mobile managed",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=85",
+    imageAlt: "Modern UAE skyscraper",
+    chips: ["Face recognition", "Resident app", "Intercom to phone"],
+    align: "right",
+    color: "#92701A",
+    accent: "#C59E3C",
   },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section id="what-we-do" className="py-24 px-6"
-      style={{ background: "linear-gradient(180deg, #0D2B10 0%, #0F1F11 100%)" }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-3 text-white">
-            What We Do
-          </h2>
-          <p className="text-green-300 text-lg opacity-70">
-            Two product lines. One platform. Built for UAE buildings.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {products.map((p) => (
-            <div key={p.title}
-              className="group relative rounded-3xl overflow-hidden"
-              style={{
-                border: `1px solid ${p.color}33`,
-                background: "rgba(255,255,255,0.03)",
-                backdropFilter: "blur(16px)",
-              }}>
-              {/* Full-bleed image */}
-              <div className="relative h-72 w-full overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0"
-                  style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 30%, #0D2B10 100%)" }} />
-
-                {/* Stat badge */}
-                <div className="absolute top-4 right-4 px-4 py-2 rounded-2xl text-center"
-                  style={{
-                    backgroundColor: "rgba(0,0,0,0.6)",
-                    backdropFilter: "blur(12px)",
-                    border: `1px solid ${p.color}55`,
-                  }}>
-                  <div className="text-2xl font-bold" style={{ color: p.color }}>{p.stat}</div>
-                  <div className="text-xs text-white opacity-70">{p.statLabel}</div>
-                </div>
-              </div>
-
-              {/* Card body — minimal text */}
-              <div className="px-7 pb-7 -mt-1">
-                <h3 className="text-2xl font-bold text-white mb-1">{p.title}</h3>
-                <p className="text-sm mb-5 opacity-60" style={{ color: p.color }}>{p.tagline}</p>
-                <div className="flex flex-wrap gap-2">
-                  {p.chips.map((c) => (
-                    <span key={c} className="px-3 py-1 rounded-full text-xs font-semibold"
-                      style={{
-                        backgroundColor: `${p.color}18`,
-                        color: p.color,
-                        border: `1px solid ${p.color}33`,
-                      }}>
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom glow line */}
-              <div className="absolute bottom-0 left-0 right-0 h-px"
-                style={{ background: `linear-gradient(90deg, transparent, ${p.color}66, transparent)` }} />
-            </div>
-          ))}
-        </div>
+    <section id="what-we-do" style={{ background: "#050E06" }}>
+      {/* Section header */}
+      <div className="text-center pt-24 pb-12 px-6">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] mb-4" style={{ color: "#C59E3C" }}>
+          Platform
+        </p>
+        <h2 className="text-5xl md:text-6xl font-bold text-white">
+          What We Do
+        </h2>
       </div>
+
+      {products.map((p, i) => (
+        <div key={p.id} className="relative min-h-[92vh] flex items-center overflow-hidden">
+          {/* Full-bleed background image */}
+          <Image
+            src={p.image}
+            alt={p.imageAlt}
+            fill
+            className="object-cover object-center"
+            priority={i === 0}
+          />
+
+          {/* Directional gradient — left or right fade to dark */}
+          <div className="absolute inset-0" style={{
+            background: p.align === "left"
+              ? "linear-gradient(90deg, rgba(5,14,6,0.97) 0%, rgba(5,14,6,0.85) 45%, rgba(5,14,6,0.2) 100%)"
+              : "linear-gradient(270deg, rgba(5,14,6,0.97) 0%, rgba(5,14,6,0.85) 45%, rgba(5,14,6,0.2) 100%)",
+          }} />
+          {/* Bottom dark fade for section separation */}
+          <div className="absolute bottom-0 left-0 right-0 h-32"
+            style={{ background: "linear-gradient(to bottom, transparent, #050E06)" }} />
+
+          {/* Content */}
+          <div className={`relative max-w-6xl mx-auto w-full px-8 py-20 flex ${p.align === "right" ? "justify-end" : "justify-start"}`}>
+            <div className="max-w-lg">
+              {/* Big title */}
+              <h3 className="text-6xl md:text-7xl font-black text-white leading-none mb-6 whitespace-pre-line">
+                {p.title}
+              </h3>
+
+              {/* Tagline */}
+              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+                {p.tagline}
+              </p>
+
+              {/* Stats row */}
+              <div className="flex gap-6 mb-10">
+                {[{ v: p.stat, l: p.statLabel }, { v: p.stat2, l: p.stat2Label }].map((s) => (
+                  <div key={s.l} className="px-5 py-4 rounded-2xl"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      backdropFilter: "blur(20px)",
+                      border: `1px solid ${p.accent}33`,
+                    }}>
+                    <div className="text-3xl font-black mb-0.5" style={{ color: p.accent }}>{s.v}</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-wide">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Chips */}
+              <div className="flex flex-wrap gap-2">
+                {p.chips.map((c) => (
+                  <span key={c}
+                    className="px-4 py-2 rounded-full text-sm font-medium"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      backdropFilter: "blur(12px)",
+                      border: `1px solid ${p.accent}44`,
+                      color: p.accent,
+                    }}>
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Vertical section label */}
+          <div className={`absolute top-1/2 -translate-y-1/2 ${p.align === "left" ? "right-8" : "left-8"} hidden lg:flex items-center gap-3`}
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg) translateY(50%)" }}>
+            <span className="text-xs font-bold tracking-[0.4em] uppercase opacity-30 text-white">
+              {String(i + 1).padStart(2, "0")} / {products.length}
+            </span>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }
