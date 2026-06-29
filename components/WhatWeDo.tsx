@@ -1,5 +1,42 @@
 import Image from "next/image";
 
+const BmsIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18" />
+  </svg>
+);
+const AiIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+  </svg>
+);
+const SavingsIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+const FaceIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+const AppIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+  </svg>
+);
+const IntercomIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+  </svg>
+);
+
 const products = [
   {
     id: "energy",
@@ -11,7 +48,11 @@ const products = [
     stat2Label: "upfront cost",
     image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1400&q=85",
     imageAlt: "Building energy systems",
-    chips: ["BMS monitoring", "AI anomaly detection", "Pay on savings only"],
+    chips: [
+      { label: "BMS monitoring", icon: <BmsIcon /> },
+      { label: "AI anomaly detection", icon: <AiIcon /> },
+      { label: "Pay on savings only", icon: <SavingsIcon /> },
+    ],
     align: "left",
     color: "#1B5E20",
     accent: "#4CAF50",
@@ -26,7 +67,11 @@ const products = [
     stat2Label: "mobile managed",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=85",
     imageAlt: "Modern UAE skyscraper",
-    chips: ["Face recognition", "Resident app", "Intercom to phone"],
+    chips: [
+      { label: "Face recognition", icon: <FaceIcon /> },
+      { label: "Resident app", icon: <AppIcon /> },
+      { label: "Intercom to phone", icon: <IntercomIcon /> },
+    ],
     align: "right",
     color: "#92701A",
     accent: "#C59E3C",
@@ -95,18 +140,19 @@ export default function WhatWeDo() {
                 ))}
               </div>
 
-              {/* Chips */}
-              <div className="flex flex-wrap gap-2">
+              {/* Chips with icons */}
+              <div className="flex flex-wrap gap-3">
                 {p.chips.map((c) => (
-                  <span key={c}
-                    className="px-4 py-2 rounded-full text-sm font-medium"
+                  <span key={c.label}
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium"
                     style={{
                       background: "rgba(255,255,255,0.06)",
                       backdropFilter: "blur(12px)",
                       border: `1px solid ${p.accent}44`,
                       color: p.accent,
                     }}>
-                    {c}
+                    {c.icon}
+                    {c.label}
                   </span>
                 ))}
               </div>
