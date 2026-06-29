@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EnergyCanvas from "./EnergyCanvas";
 
 export default function Hero() {
   return (
@@ -24,6 +25,9 @@ export default function Hero() {
           backgroundSize: "40px 40px",
         }}
       />
+
+      {/* Animated energy network */}
+      <EnergyCanvas />
 
       <div className="relative max-w-4xl mx-auto">
         <div
@@ -56,11 +60,11 @@ export default function Hero() {
             Book a Demo
           </a>
           <a
-            href="#what-we-do"
+            href="#calculator"
             className="px-8 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10"
             style={{ color: "white", border: "2px solid rgba(255,255,255,0.4)" }}
           >
-            Learn More
+            Calculate My Savings
           </a>
         </div>
       </div>

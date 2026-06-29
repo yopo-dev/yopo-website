@@ -4,6 +4,10 @@ import WhatWeDo from "@/components/WhatWeDo";
 import Showcase from "@/components/Showcase";
 import HowItWorks from "@/components/HowItWorks";
 import WhyYopo from "@/components/WhyYopo";
+import ImpactCounter from "@/components/ImpactCounter";
+import DashboardPreview from "@/components/DashboardPreview";
+import CarbonCalculator from "@/components/CarbonCalculator";
+import AiChat from "@/components/AiChat";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,8 +20,12 @@ export default function Home() {
       <Showcase />
       <HowItWorks />
       <WhyYopo />
+      <ImpactCounter />
+      <DashboardPreview />
+      <CarbonCalculator />
       <Contact />
       <Footer />
+      <AiChat />
     </main>
   );
 }
