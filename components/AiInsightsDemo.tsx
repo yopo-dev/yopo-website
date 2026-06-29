@@ -112,8 +112,8 @@ export default function AiInsightsDemo() {
 
             {/* Building photo */}
             <Image
-              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85"
-              alt="Marina Heights Tower B — being scanned"
+              src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=85"
+              alt="Dubai Marina Tower — being scanned"
               fill
               className="object-cover object-center"
             />
