@@ -35,7 +35,7 @@ const stats = [
     value: 43,
     suffix: "",
     label: "Buildings Connected",
-    sublabel: "across Dubai & UAE",
+    sublabel: "across Dubai and UAE",
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -61,6 +61,24 @@ const stats = [
   },
 ];
 
+function UaeFlagSvg({ size = 48 }: { size?: number }) {
+  const w = size * 1.8;
+  const h = size;
+  const redW = w * 0.25;
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} rx="4" style={{ borderRadius: 4, flexShrink: 0 }}>
+      {/* Red vertical stripe */}
+      <rect x="0" y="0" width={redW} height={h} fill="#EF3340" />
+      {/* Green horizontal top third */}
+      <rect x={redW} y="0" width={w - redW} height={h / 3} fill="#009A44" />
+      {/* White horizontal middle */}
+      <rect x={redW} y={h / 3} width={w - redW} height={h / 3} fill="#FFFFFF" />
+      {/* Black horizontal bottom */}
+      <rect x={redW} y={(h / 3) * 2} width={w - redW} height={h / 3} fill="#000000" />
+    </svg>
+  );
+}
+
 function useCountUp(target: number, duration: number, start: boolean, decimals: number) {
   const [count, setCount] = useState(0);
   const raf = useRef<number | null>(null);
@@ -71,7 +89,6 @@ function useCountUp(target: number, duration: number, start: boolean, decimals: 
     const step = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(parseFloat((eased * target).toFixed(decimals)));
       if (progress < 1) raf.current = requestAnimationFrame(step);
@@ -96,7 +113,6 @@ function StatCard({ stat, animate }: { stat: typeof stats[0]; animate: boolean }
         border: "1px solid rgba(255,255,255,0.08)",
         backdropFilter: "blur(12px)",
       }}>
-      {/* Glow blob */}
       <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20 blur-2xl transition-opacity group-hover:opacity-40"
         style={{ backgroundColor: stat.color }} />
 
@@ -142,7 +158,7 @@ export default function ImpactCounter() {
           backgroundSize: "60px 60px",
         }} />
 
-      {/* Pulse rings top-left */}
+      {/* Pulse rings */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full opacity-10"
         style={{ border: "1px solid #C59E3C", animation: "ping 4s cubic-bezier(0,0,0.2,1) infinite" }} />
       <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full opacity-10"
@@ -166,38 +182,78 @@ export default function ImpactCounter() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {stats.map((stat) => (
             <StatCard key={stat.label} stat={stat} animate={animate} />
           ))}
         </div>
 
-        {/* UAE Net Zero alignment banner */}
-        <div className="rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-          style={{
-            background: "rgba(197,158,60,0.08)",
-            border: "1px solid rgba(197,158,60,0.25)",
-          }}>
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: "rgba(197,158,60,0.15)" }}>
-              <svg className="w-6 h-6" fill="none" stroke="#C59E3C" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <div>
-              <div className="font-bold text-white text-lg">Aligned with UAE Net Zero 2050</div>
-              <div className="text-green-300 text-sm opacity-75">
-                Yopo buildings are actively contributing to the UAE&apos;s national climate strategy, measurably and not symbolically.
+        {/* UAE Net Zero 2050 hero banner */}
+        <div className="relative rounded-3xl overflow-hidden"
+          style={{ border: "1px solid rgba(239,51,64,0.3)" }}>
+
+          {/* UAE flag colour bar across the top */}
+          <div className="flex h-1.5 w-full">
+            <div className="flex-1" style={{ backgroundColor: "#EF3340" }} />
+            <div className="flex-1" style={{ backgroundColor: "#009A44" }} />
+            <div className="flex-1" style={{ backgroundColor: "#FFFFFF" }} />
+            <div className="flex-1" style={{ backgroundColor: "#000000" }} />
+          </div>
+
+          <div className="px-8 py-10 md:px-12"
+            style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,154,68,0.12) 50%, rgba(239,51,64,0.08) 100%)" }}>
+            <div className="flex flex-col md:flex-row items-center gap-8">
+
+              {/* Flag + headline */}
+              <div className="flex items-center gap-5 flex-shrink-0">
+                <div style={{ borderRadius: 8, overflow: "hidden", boxShadow: "0 0 0 2px rgba(255,255,255,0.15)" }}>
+                  <UaeFlagSvg size={52} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.25em] mb-1" style={{ color: "#009A44" }}>
+                    UAE Net Zero 2050
+                  </p>
+                  <p className="text-white font-black text-2xl md:text-3xl leading-tight">
+                    Proudly building<br />
+                    <span style={{ color: "#EF3340" }}>a greener UAE.</span>
+                  </p>
+                </div>
               </div>
+
+              {/* Divider */}
+              <div className="hidden md:block w-px self-stretch opacity-20" style={{ backgroundColor: "#fff" }} />
+
+              {/* Copy */}
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-gray-300 text-base leading-relaxed mb-4">
+                  The UAE has set one of the world&apos;s most ambitious climate targets. Yopo exists to help every building in the country do its part, measurably and transparently. We are proud to be a UAE-built platform, serving UAE buildings, on the UAE&apos;s journey to Net Zero.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                  {["UAE Vision 2030", "Net Zero 2050", "Dubai Clean Energy Strategy", "DEWA Aligned"].map((tag) => (
+                    <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold"
+                      style={{ background: "rgba(0,154,68,0.15)", color: "#4ade80", border: "1px solid rgba(0,154,68,0.3)" }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <a href="#contact"
+                className="flex-shrink-0 px-7 py-3.5 rounded-full font-bold text-sm transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap"
+                style={{ backgroundColor: "#EF3340", color: "#fff" }}>
+                Join the mission
+              </a>
             </div>
           </div>
-          <a href="#contact"
-            className="flex-shrink-0 px-6 py-3 rounded-full font-semibold text-sm transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap"
-            style={{ backgroundColor: "#C59E3C", color: "#fff" }}>
-            Join the mission
-          </a>
+
+          {/* UAE flag colour bar across the bottom */}
+          <div className="flex h-1.5 w-full">
+            <div className="flex-1" style={{ backgroundColor: "#000000" }} />
+            <div className="flex-1" style={{ backgroundColor: "#FFFFFF" }} />
+            <div className="flex-1" style={{ backgroundColor: "#009A44" }} />
+            <div className="flex-1" style={{ backgroundColor: "#EF3340" }} />
+          </div>
         </div>
       </div>
     </section>

@@ -31,9 +31,16 @@ export default function Hero() {
 
       <div className="relative max-w-4xl mx-auto">
         <div
-          className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-8"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-8"
           style={{ backgroundColor: "rgba(197,158,60,0.2)", color: "#C59E3C", border: "1px solid rgba(197,158,60,0.4)" }}
         >
+          {/* UAE flag inline */}
+          <svg width="22" height="14" viewBox="0 0 22 14" style={{ borderRadius: 2, flexShrink: 0 }}>
+            <rect x="0" y="0" width="5.5" height="14" fill="#EF3340" />
+            <rect x="5.5" y="0" width="16.5" height="4.67" fill="#009A44" />
+            <rect x="5.5" y="4.67" width="16.5" height="4.67" fill="#FFFFFF" />
+            <rect x="5.5" y="9.33" width="16.5" height="4.67" fill="#000000" />
+          </svg>
           Dubai · Building Intelligence Platform
         </div>
 
