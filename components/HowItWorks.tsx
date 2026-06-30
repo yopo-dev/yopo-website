@@ -3,87 +3,50 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const SCREENS = [
+const SCENARIOS = [
   {
     label: "Face Entry",
-    color: "#1B5E20",
-    content: (
-      <div className="flex flex-col items-center justify-center h-full gap-4 px-4">
-        <div className="relative w-20 h-20">
-          <div className="absolute inset-0 rounded-full border-2 border-green-400 opacity-40 animate-ping" />
-          <div className="w-20 h-20 rounded-full border-2 border-green-400 flex items-center justify-center">
-            <svg className="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <div className="absolute inset-0 overflow-hidden rounded-full">
-            <div className="absolute left-0 right-0 h-0.5 bg-green-400 opacity-60"
-              style={{ animation: "scanLine 2s linear infinite", top: "0%" }} />
-          </div>
-        </div>
-        <p className="text-green-400 text-xs font-bold uppercase tracking-widest">Scanning face…</p>
-        <div className="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
-          <div className="h-full bg-green-400 rounded-full" style={{ width: "70%", animation: "growBar 2s ease-in-out infinite" }} />
-        </div>
-        <p className="text-white text-sm font-bold">Welcome back, Ahmed</p>
-        <div className="px-4 py-2 rounded-full text-xs font-bold" style={{ backgroundColor: "rgba(27,94,32,0.3)", color: "#4CAF50", border: "1px solid rgba(76,175,80,0.4)" }}>
-          ✓ Door Unlocked
-        </div>
-      </div>
+    headline: "Walk in. No phone out.",
+    body: "Face recognised at the door in under 2 seconds. No cards, no PINs, no fumbling.",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=85",
+    accent: "#4CAF50",
+    stat: "< 2s",
+    statLabel: "to unlock",
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+          d="M15 10a3 3 0 11-6 0 3 3 0 016 0zM5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804" />
+      </svg>
     ),
   },
   {
     label: "Visitor Call",
-    color: "#C59E3C",
-    content: (
-      <div className="flex flex-col items-center justify-center h-full gap-3 px-4">
-        <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center border-2 border-yellow-500/40">
-          <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </div>
-        <p className="text-white font-bold text-sm">Visitor at Lobby</p>
-        <p className="text-gray-400 text-xs">Main Entrance · Now</p>
-        <div className="flex gap-4 mt-2">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: "#ef4444" }}>
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </div>
-          <div className="w-12 h-12 rounded-full flex items-center justify-center animate-pulse" style={{ backgroundColor: "#1B5E20" }}>
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-          </div>
-        </div>
-        <button className="mt-1 px-4 py-2 rounded-xl text-xs font-bold" style={{ backgroundColor: "rgba(197,158,60,0.2)", color: "#C59E3C", border: "1px solid rgba(197,158,60,0.4)" }}>
-          🔓 Open door remotely
-        </button>
-      </div>
+    headline: "See your visitor. Open the door. From anywhere.",
+    body: "Visitor presses the intercom — your phone rings instantly. See them, talk, and let them in remotely.",
+    img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&q=85",
+    accent: "#C59E3C",
+    stat: "Worldwide",
+    statLabel: "remote access",
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
     ),
   },
   {
     label: "Community",
-    color: "#4CAF50",
-    content: (
-      <div className="flex flex-col h-full px-3 py-2 gap-2 overflow-hidden">
-        <p className="text-xs font-bold text-green-400 uppercase tracking-widest mb-1">Building Feed</p>
-        {[
-          { from: "Management", msg: "Pool closed Fri 10–12 for maintenance", time: "2m ago", dot: "#C59E3C" },
-          { from: "Unit 12B", msg: "Lost keys near the gym, please DM", time: "14m ago", dot: "#4CAF50" },
-          { from: "Management", msg: "Package delivered to reception for 8A", time: "1h ago", dot: "#C59E3C" },
-        ].map((item) => (
-          <div key={item.from + item.time} className="rounded-xl p-2.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.dot }} />
-              <span className="text-xs font-semibold text-white">{item.from}</span>
-              <span className="text-gray-600 text-xs ml-auto">{item.time}</span>
-            </div>
-            <p className="text-gray-300 text-xs leading-snug">{item.msg}</p>
-          </div>
-        ))}
-      </div>
+    headline: "Your building, connected.",
+    body: "Announcements, community updates, and package alerts — all in one feed for every resident.",
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=85",
+    accent: "#4CAF50",
+    stat: "1 app",
+    statLabel: "for everything",
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
     ),
   },
 ];
@@ -133,13 +96,11 @@ function FlowDiagram({ active }: { active: boolean }) {
   useEffect(() => {
     if (!active) { setLit([]); return; }
     setLit([]);
-    FLOW_NODES.forEach((_, i) => {
-      setTimeout(() => setLit((p) => [...p, i]), i * 600);
-    });
+    FLOW_NODES.forEach((_, i) => setTimeout(() => setLit((p) => [...p, i]), i * 600));
   }, [active]);
 
   return (
-    <div className="relative flex items-center justify-between gap-0 py-4 px-2">
+    <div className="flex items-center justify-between gap-0 py-4 px-2">
       {FLOW_NODES.map((node, i) => (
         <div key={node.label} className="flex items-center flex-1 last:flex-none">
           <div className="flex flex-col items-center gap-2 flex-shrink-0">
@@ -152,7 +113,7 @@ function FlowDiagram({ active }: { active: boolean }) {
               }}>
               {node.icon}
             </div>
-            <p className="text-white text-xs font-bold text-center leading-tight">{node.label}</p>
+            <p className="text-white text-xs font-bold text-center">{node.label}</p>
             <p className="text-gray-600 text-xs text-center">{node.sub}</p>
           </div>
           {i < FLOW_NODES.length - 1 && (
@@ -179,25 +140,19 @@ function FlowDiagram({ active }: { active: boolean }) {
 }
 
 export default function HowItWorks() {
-  const [activeScreen, setActiveScreen] = useState(0);
   const [activeStep, setActiveStep] = useState(-1);
   const [flowActive, setFlowActive] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const id = setInterval(() => setActiveScreen((s) => (s + 1) % SCREENS.length), 3000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          ACCESS_STEPS.forEach((_, i) => setTimeout(() => setActiveStep(i), i * 300));
-          setTimeout(() => setFlowActive(true), ACCESS_STEPS.length * 300 + 400);
+          ACCESS_STEPS.forEach((_, i) => setTimeout(() => setActiveStep(i), i * 250));
+          setTimeout(() => setFlowActive(true), ACCESS_STEPS.length * 250 + 400);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -207,28 +162,19 @@ export default function HowItWorks() {
     <section id="how-it-works" ref={sectionRef} className="relative py-28 px-6 overflow-hidden"
       style={{ background: "#07090E" }}>
 
-      {/* Background: building lobby photo with heavy overlay */}
-      <Image
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=70"
-        alt=""
-        fill
-        className="object-cover object-center opacity-10"
-        aria-hidden="true"
-      />
-      {/* Radial glow from centre */}
+      {/* Subtle radial glow */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(197,158,60,0.07) 0%, transparent 70%)" }} />
-      {/* Top fade from WhyYopo */}
+        style={{ background: "radial-gradient(ellipse 80% 50% at 50% 20%, rgba(197,158,60,0.06) 0%, transparent 70%)" }} />
+      {/* Top/bottom fades */}
       <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
         style={{ background: "linear-gradient(to bottom, #050E06, transparent)" }} />
-      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{ background: "linear-gradient(to top, #07090E, transparent)" }} />
 
       <div className="relative max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.25em] mb-6"
             style={{ backgroundColor: "rgba(197,158,60,0.1)", color: "#C59E3C", border: "1px solid rgba(197,158,60,0.25)" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
@@ -243,104 +189,101 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        {/* Phone + Steps */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        {/* 3 scenario tiles */}
+        <div className="grid md:grid-cols-3 gap-4 mb-16">
+          {SCENARIOS.map((s) => (
+            <div key={s.label}
+              className="group relative rounded-3xl overflow-hidden cursor-default"
+              style={{ height: "380px", border: `1px solid ${s.accent}20` }}>
 
-          {/* Phone mockup */}
-          <div className="flex justify-center">
-            <div className="relative">
-              {/* Outer glow */}
-              <div className="absolute inset-0 blur-3xl opacity-25 rounded-full"
-                style={{ backgroundColor: SCREENS[activeScreen].color, transform: "scale(0.75)" }} />
+              {/* Background photo */}
+              <Image src={s.img} alt={s.label} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
 
-              {/* Phone shell */}
-              <div className="relative w-56 rounded-[2.5rem] overflow-hidden shadow-2xl"
-                style={{ background: "#0a0a0a", border: "6px solid #1a1a1a", height: "440px" }}>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-b-2xl z-10" />
-                <div className="flex justify-between items-center px-5 pt-7 pb-1">
-                  <span className="text-white text-xs font-bold">9:41</span>
-                  <div className="flex gap-1 items-center">
-                    <div className="w-3 h-1.5 rounded-sm bg-white opacity-70" />
-                  </div>
-                </div>
-                <div className="px-4 pb-2 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-md flex items-center justify-center"
-                      style={{ backgroundColor: SCREENS[activeScreen].color }}>
-                      <span className="text-white text-xs font-black">Y</span>
-                    </div>
-                    <span className="text-white text-xs font-bold">Yopo</span>
-                  </div>
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                    style={{ backgroundColor: `${SCREENS[activeScreen].color}22`, color: SCREENS[activeScreen].color }}>
-                    {SCREENS[activeScreen].label}
-                  </span>
-                </div>
-                <div className="mx-2 rounded-2xl overflow-hidden transition-all duration-500"
-                  style={{ height: "320px", background: "#111" }}>
-                  {SCREENS[activeScreen].content}
-                </div>
-                <div className="flex justify-center pt-2">
-                  <div className="w-20 h-1 rounded-full bg-white opacity-30" />
+              {/* Dark overlay — heavier at bottom */}
+              <div className="absolute inset-0"
+                style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.2) 100%)" }} />
+
+              {/* Accent glow line top */}
+              <div className="absolute top-0 left-0 right-0 h-0.5"
+                style={{ background: `linear-gradient(90deg, transparent, ${s.accent}, transparent)` }} />
+
+              {/* Label pill */}
+              <div className="absolute top-5 left-5 px-3 py-1 rounded-full text-xs font-bold"
+                style={{ backgroundColor: `${s.accent}22`, color: s.accent, border: `1px solid ${s.accent}40`, backdropFilter: "blur(8px)" }}>
+                {s.label}
+              </div>
+
+              {/* Stat badge */}
+              <div className="absolute top-5 right-5 px-3 py-1.5 rounded-xl text-center"
+                style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                <div className="font-black text-lg leading-none" style={{ color: s.accent }}>{s.stat}</div>
+                <div className="text-gray-400 text-xs mt-0.5">{s.statLabel}</div>
+              </div>
+
+              {/* Icon */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ color: s.accent }}>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  style={{ background: `${s.accent}20`, border: `1px solid ${s.accent}40`, backdropFilter: "blur(8px)" }}>
+                  {s.icon}
                 </div>
               </div>
 
-              {/* Screen dots */}
-              <div className="flex justify-center gap-2 mt-5">
-                {SCREENS.map((_, i) => (
-                  <button key={i} onClick={() => setActiveScreen(i)}
-                    className="w-2 h-2 rounded-full transition-all duration-300"
-                    style={{ backgroundColor: i === activeScreen ? "#C59E3C" : "rgba(255,255,255,0.2)" }} />
-                ))}
+              {/* Bottom text */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white font-black text-xl mb-2 leading-tight">{s.headline}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{s.body}</p>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Steps as visual cards with photo thumbnails */}
-          <div className="flex flex-col gap-4">
+        {/* How it's set up */}
+        <div className="mb-8">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] mb-6 text-center" style={{ color: "#C59E3C" }}>
+            Getting started
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ACCESS_STEPS.map((step, i) => (
               <div key={step.title}
-                className="flex gap-4 items-center rounded-2xl overflow-hidden transition-all duration-500"
+                className="rounded-2xl overflow-hidden transition-all duration-500"
                 style={{
                   background: activeStep >= i ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.01)",
-                  border: activeStep >= i ? `1px solid ${step.accent}40` : "1px solid rgba(255,255,255,0.04)",
-                  opacity: activeStep >= i ? 1 : 0.25,
-                  transform: activeStep >= i ? "translateX(0)" : "translateX(-16px)",
-                  boxShadow: activeStep >= i ? `0 0 24px ${step.accent}10` : "none",
+                  border: activeStep >= i ? `1px solid ${step.accent}35` : "1px solid rgba(255,255,255,0.04)",
+                  opacity: activeStep >= i ? 1 : 0.2,
+                  transform: activeStep >= i ? "translateY(0)" : "translateY(12px)",
                 }}>
 
                 {/* Thumbnail */}
-                <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <Image src={step.img} alt={step.title} fill className="object-cover" />
-                  <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)" }} />
-                  <div className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded text-xs font-black"
-                    style={{ backgroundColor: step.accent, color: "#000", fontSize: "9px" }}>
+                  <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.45)" }} />
+                  <div className="absolute top-3 left-3 text-3xl font-black opacity-60 text-white"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded-full text-xs font-black"
+                    style={{ backgroundColor: step.accent, color: "#000" }}>
                     {step.tag}
                   </div>
                 </div>
 
                 {/* Text */}
-                <div className="flex-1 py-3 pr-4">
+                <div className="p-4">
                   <p className="font-bold text-white text-sm mb-1">{step.title}</p>
                   <p className="text-gray-500 text-xs leading-relaxed">{step.body}</p>
-                </div>
-
-                {/* Step number */}
-                <div className="pr-4 text-3xl font-black opacity-15 text-white flex-shrink-0">
-                  {String(i + 1).padStart(2, "0")}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Visitor flow diagram */}
-        <div className="rounded-3xl p-6 md:p-10 mb-8"
+        {/* Visitor flow */}
+        <div className="rounded-3xl p-6 md:p-10 mb-6"
           style={{
             background: "rgba(0,0,0,0.5)",
             backdropFilter: "blur(20px)",
             border: "1px solid rgba(197,158,60,0.15)",
-            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
           }}>
           <div className="flex items-center gap-3 mb-1">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#C59E3C" }} />
@@ -385,14 +328,6 @@ export default function HowItWorks() {
       </div>
 
       <style>{`
-        @keyframes scanLine {
-          0% { top: 0%; }
-          100% { top: 100%; }
-        }
-        @keyframes growBar {
-          0%, 100% { width: 40%; }
-          50% { width: 85%; }
-        }
         @keyframes travelDot {
           0% { left: 0%; }
           100% { left: 100%; }
