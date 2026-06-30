@@ -38,18 +38,57 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-          Buildings that work
+          Your building is leaking
           <br />
-          <span style={{ color: "#C59E3C" }}>smarter.</span>
+          <span style={{ color: "#C59E3C" }}>money right now.</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-green-100 max-w-2xl mx-auto mb-4 leading-relaxed">
-          Yopo combines AI-driven energy optimisation with intelligent building access — helping property managers reduce costs and improve the resident experience.
+        <p className="text-xl md:text-2xl text-green-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+          We scan your systems, find the waste, and fix it — with zero upfront cost, no long-term contract, and zero downtime.
         </p>
 
-        <p className="text-green-200 text-base mb-12">
-          No upfront cost on energy. Performance-based model — we only earn when you save.
-        </p>
+        {/* Testimonial quote */}
+        <div
+          className="relative max-w-2xl mx-auto mb-12 rounded-2xl px-7 py-6 text-left"
+          style={{
+            background: "rgba(0,0,0,0.35)",
+            backdropFilter: "blur(16px)",
+            border: "1px solid rgba(197,158,60,0.35)",
+          }}
+        >
+          {/* Gold quote mark */}
+          <span
+            className="absolute -top-5 left-6 text-6xl font-serif leading-none select-none"
+            style={{ color: "#C59E3C", opacity: 0.9 }}
+          >
+            &ldquo;
+          </span>
+          <p className="text-white text-base md:text-lg leading-relaxed mb-4 pt-2">
+            We agreed to a free trial — Yopo analysed all our building data, found the leaks and inefficiencies, and fixed them with{" "}
+            <span style={{ color: "#C59E3C" }} className="font-semibold">no disruption to our systems or residents</span>.
+            Within 6 months we were saving{" "}
+            <span style={{ color: "#C59E3C" }} className="font-bold">17% on energy costs</span>.
+            Nothing to pay upfront, no lock-in. I wish we'd done this years ago.
+          </p>
+          <div className="flex items-center gap-3">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #1B5E20, #4CAF50)", color: "white" }}
+            >
+              JA
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">Julie Anderson</p>
+              <p className="text-green-300 text-xs">Asset Manager · Aqua Asset Management, Dubai &amp; Abu Dhabi</p>
+            </div>
+            <div
+              className="ml-auto px-3 py-1 rounded-full text-xs font-bold flex-shrink-0"
+              style={{ background: "rgba(76,175,80,0.15)", color: "#4CAF50", border: "1px solid rgba(76,175,80,0.3)" }}
+            >
+              ✓ Verified client
+            </div>
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -57,7 +96,7 @@ export default function Hero() {
             className="px-8 py-4 rounded-full font-semibold text-white text-lg transition-all hover:opacity-90 hover:scale-105"
             style={{ backgroundColor: "#C59E3C" }}
           >
-            Book a Demo
+            Get a Free Building Scan
           </a>
           <a
             href="#calculator"
