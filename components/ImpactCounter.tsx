@@ -189,7 +189,7 @@ export default function ImpactCounter() {
             <div>
               <div className="font-bold text-white text-lg">Aligned with UAE Net Zero 2050</div>
               <div className="text-green-300 text-sm opacity-75">
-                Yopo buildings are actively contributing to the UAE&apos;s national climate strategy — measurably, not symbolically.
+                Yopo buildings are actively contributing to the UAE&apos;s national climate strategy, measurably and not symbolically.
               </div>
             </div>
           </div>

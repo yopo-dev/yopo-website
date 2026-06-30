@@ -11,12 +11,12 @@ const FAQS: { patterns: string[]; answer: string }[] = [
   {
     patterns: ["price", "cost", "fee", "pay", "upfront", "pricing"],
     answer:
-      "Yopo operates on a performance-based model for energy — there's no upfront cost. You pay a share of the verified savings only. If we don't reduce your energy bill, you don't pay a thing. Building access (face recognition + resident app) is priced separately as a monthly subscription.",
+      "Yopo operates on a performance-based model for energy. There's no upfront cost. You pay a share of the verified savings only. If we don't reduce your energy bill, you don't pay a thing. Building access (face recognition + resident app) is priced separately as a monthly subscription.",
   },
   {
     patterns: ["how", "work", "bms", "connect", "install", "setup"],
     answer:
-      "We install a read-only gateway that connects to your existing BMS via BACnet/IP or Modbus. It takes 1–2 days and doesn't disrupt operations. Our AI then continuously monitors every data point, detects inefficiencies, and surfaces recommendations to your team. No writing to the BMS — your existing contractors stay in full control.",
+      "We install a read-only gateway that connects to your existing BMS via BACnet/IP or Modbus. It takes 1–2 days and doesn't disrupt operations. Our AI then continuously monitors every data point, detects inefficiencies, and surfaces recommendations to your team. No writing to the BMS, your existing contractors stay in full control.",
   },
   {
     patterns: ["saving", "save", "reduction", "kwh", "percent", "%"],
@@ -26,7 +26,7 @@ const FAQS: { patterns: string[]; answer: string }[] = [
   {
     patterns: ["co2", "carbon", "environment", "green", "planet", "emission", "net zero", "climate"],
     answer:
-      "Every building on Yopo contributes to the UAE's Net Zero 2050 strategy. A typical 50,000 sq ft residential tower saves around 200–300 tonnes of CO₂ per year — equivalent to planting over 10,000 trees annually. We provide monthly carbon impact reports you can use for ESG reporting.",
+      "Every building on Yopo contributes to the UAE's Net Zero 2050 strategy. A typical 50,000 sq ft residential tower saves around 200–300 tonnes of CO₂ per year, which is to planting over 10,000 trees annually. We provide monthly carbon impact reports you can use for ESG reporting.",
   },
   {
     patterns: ["face", "access", "recognition", "door", "entry", "resident", "app"],
@@ -36,12 +36,12 @@ const FAQS: { patterns: string[]; answer: string }[] = [
   {
     patterns: ["dubai", "uae", "dewa", "local", "where"],
     answer:
-      "We're based in Dubai and built specifically for the UAE market — DEWA tariffs, BACnet/IP BMS systems, and the high-rise residential and commercial buildings typical of Dubai Marina, JBR, Business Bay, and beyond. We're not a global platform adapted for here; we were built here.",
+      "We're based in Dubai and built specifically for the UAE market: DEWA tariffs, BACnet/IP BMS systems, and the high-rise residential and commercial buildings typical of Dubai Marina, JBR, Business Bay, and beyond. We were built here.",
   },
   {
     patterns: ["demo", "trial", "test", "see", "meet", "book", "contact", "talk"],
     answer:
-      "Absolutely — we'd love to show you. Head to the Contact section on this page and fill in your details, or just tell me your email and I'll flag your interest directly to our team. A demo typically takes 30 minutes and covers both the energy dashboard and the access platform.",
+      "Absolutely, we'd love to show you. Head to the Contact section on this page and fill in your details, or just tell me your email and I'll flag your interest directly to our team. A demo typically takes 30 minutes and covers both the energy dashboard and the access platform.",
   },
   {
     patterns: ["time", "long", "onboard", "start", "begin", "quick"],
@@ -51,12 +51,12 @@ const FAQS: { patterns: string[]; answer: string }[] = [
   {
     patterns: ["security", "safe", "data", "privacy", "hack", "secure"],
     answer:
-      "Security is built into the architecture. Our BMS gateway is read-only — we cannot write commands to your building systems. All data is encrypted in transit and at rest. Facial recognition data is stored securely and governed by UAE data protection regulations. We're happy to share our security documentation on request.",
+      "Security is built into the architecture. Our BMS gateway is read-only, we cannot write commands to your building systems. All data is encrypted in transit and at rest. Facial recognition data is stored securely and governed by UAE data protection regulations. We're happy to share our security documentation on request.",
   },
 ];
 
 const FALLBACK =
-  "Great question! I don't have a specific answer for that right now, but our team will. Head to the Contact section and drop us a message — we typically respond within a few hours.";
+  "Great question! I don't have a specific answer for that right now, but our team will. Head to the Contact section and drop us a message and we typically respond within a few hours.";
 
 const SUGGESTIONS = [
   "How does Yopo connect to my BMS?",

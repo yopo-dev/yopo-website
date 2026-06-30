@@ -37,7 +37,7 @@ export default function Contact() {
                 {[
                   "We review your message and respond within one business day.",
                   "We schedule a short call to understand your building and current setup.",
-                  "We share a tailored overview of what Yopo can deliver — with realistic numbers.",
+                  "We share a tailored overview of what Yopo can deliver, with realistic numbers.",
                   "If there's a fit, we agree on a pilot scope and timeline.",
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3">

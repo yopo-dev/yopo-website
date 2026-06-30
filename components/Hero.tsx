@@ -44,7 +44,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-green-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-          We scan your systems, find the waste, and fix it — with zero upfront cost, no long-term contract, and zero downtime.
+          We scan your systems, find the waste, and fix it. Zero upfront cost, no long-term contract, and zero downtime.
         </p>
 
         {/* Testimonial quote */}
@@ -64,7 +64,7 @@ export default function Hero() {
             &ldquo;
           </span>
           <p className="text-white text-base md:text-lg leading-relaxed mb-4 pt-2">
-            We agreed to a free trial — Yopo analysed all our building data, found the leaks and inefficiencies, and fixed them with{" "}
+            We agreed to a free trial. Yopo analysed all our building data, found the leaks and inefficiencies, and fixed them with{" "}
             <span style={{ color: "#C59E3C" }} className="font-semibold">no disruption to our systems or residents</span>.
             Within 6 months we were saving{" "}
             <span style={{ color: "#C59E3C" }} className="font-bold">17% on energy costs</span>.
@@ -79,7 +79,7 @@ export default function Hero() {
             </div>
             <div>
               <p className="text-white font-semibold text-sm">Julie Anderson</p>
-              <p className="text-green-300 text-xs">Asset Manager · Aqua Asset Management, Dubai &amp; Abu Dhabi</p>
+              <p className="text-green-300 text-xs">Asset Manager · Aqua Asset Management</p>
             </div>
             <div
               className="ml-auto px-3 py-1 rounded-full text-xs font-bold flex-shrink-0"

@@ -1,130 +1,90 @@
 import Image from "next/image";
 
+const energyFeatures = [
+  { label: "BMS monitoring",       img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
+  { label: "AI anomaly detection", img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80" },
+  { label: "Pay on savings only",  img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" },
+];
 
-const products = [
-  {
-    id: "energy",
-    title: "Energy\nIntelligence",
-    tagline: "Your building is wasting energy right now. We find it.",
-    stat: "14%",
-    statLabel: "avg reduction",
-    stat2: "AED 0",
-    stat2Label: "upfront cost",
-    image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1400&q=85",
-    imageAlt: "Building energy systems",
-    chips: [
-      { label: "BMS monitoring",        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
-      { label: "AI anomaly detection",  img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80" },
-      { label: "Pay on savings only",   img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" },
-    ],
-    align: "left",
-    color: "#1B5E20",
-    accent: "#4CAF50",
-  },
-  {
-    id: "access",
-    title: "Building\nAccess",
-    tagline: "Walk in. Your face is your key.",
-    stat: "2s",
-    statLabel: "avg entry",
-    stat2: "100%",
-    stat2Label: "mobile managed",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=85",
-    imageAlt: "Modern UAE skyscraper",
-    chips: [
-      { label: "Face recognition",  img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&q=80" },
-      { label: "Resident app",      img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" },
-      { label: "Intercom to phone", img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=400&q=80" },
-    ],
-    align: "right",
-    color: "#92701A",
-    accent: "#C59E3C",
-  },
+const accessFeatures = [
+  { label: "Face recognition",  img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&q=80" },
+  { label: "Resident app",      img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" },
+  { label: "Intercom to phone", img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=400&q=80" },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section id="what-we-do" style={{ background: "#050E06" }}>
-      {/* Section header */}
-      <div className="text-center pt-24 pb-12 px-6">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] mb-4" style={{ color: "#C59E3C" }}>
-          Platform
-        </p>
-        <h2 className="text-5xl md:text-6xl font-bold text-white">
-          What We Do
-        </h2>
-      </div>
+    <section id="what-we-do" style={{ background: "#050E06" }} className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] mb-4" style={{ color: "#C59E3C" }}>
+            Platform
+          </p>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            What We Do
+          </h2>
+          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+            One platform. Two products. Smarter buildings from the inside out.
+          </p>
+        </div>
 
-      {products.map((p, i) => (
-        <div key={p.id} className="relative min-h-[92vh] flex items-center overflow-hidden">
-          {/* Full-bleed background image */}
-          <Image
-            src={p.image}
-            alt={p.imageAlt}
-            fill
-            className="object-cover object-center"
-            priority={i === 0}
-          />
+        {/* Two-product grid */}
+        <div className="grid md:grid-cols-2 gap-6">
 
-          {/* Directional gradient — left or right fade to dark */}
-          <div className="absolute inset-0" style={{
-            background: p.align === "left"
-              ? "linear-gradient(90deg, rgba(5,14,6,0.97) 0%, rgba(5,14,6,0.85) 45%, rgba(5,14,6,0.2) 100%)"
-              : "linear-gradient(270deg, rgba(5,14,6,0.97) 0%, rgba(5,14,6,0.85) 45%, rgba(5,14,6,0.2) 100%)",
-          }} />
-          {/* Bottom dark fade for section separation */}
-          <div className="absolute bottom-0 left-0 right-0 h-32"
-            style={{ background: "linear-gradient(to bottom, transparent, #050E06)" }} />
+          {/* Energy Intelligence */}
+          <div className="relative rounded-3xl overflow-hidden flex flex-col"
+            style={{ border: "1px solid rgba(76,175,80,0.2)", background: "rgba(255,255,255,0.02)" }}>
 
-          {/* Content */}
-          <div className={`relative max-w-6xl mx-auto w-full px-8 py-20 flex ${p.align === "right" ? "justify-end" : "justify-start"}`}>
-            <div className="max-w-lg">
-              {/* Big title */}
-              <h3 className="text-6xl md:text-7xl font-black text-white leading-none mb-6 whitespace-pre-line">
-                {p.title}
-              </h3>
+            {/* Background image with overlay */}
+            <div className="relative h-52 overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=800&q=85"
+                alt="Building energy systems"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0"
+                style={{ background: "linear-gradient(to bottom, rgba(5,14,6,0.3) 0%, rgba(5,14,6,0.95) 100%)" }} />
 
-              {/* Tagline */}
-              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
-                {p.tagline}
-              </p>
-
-              {/* Stats row */}
-              <div className="flex gap-6 mb-10">
-                {[{ v: p.stat, l: p.statLabel }, { v: p.stat2, l: p.stat2Label }].map((s) => (
-                  <div key={s.l} className="px-5 py-4 rounded-2xl"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      backdropFilter: "blur(20px)",
-                      border: `1px solid ${p.accent}33`,
-                    }}>
-                    <div className="text-3xl font-black mb-0.5" style={{ color: p.accent }}>{s.v}</div>
+              {/* Floating stats */}
+              <div className="absolute bottom-4 left-5 flex gap-3">
+                {[{ v: "14%", l: "avg reduction" }, { v: "AED 0", l: "upfront cost" }].map((s) => (
+                  <div key={s.l} className="px-4 py-2.5 rounded-xl"
+                    style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(16px)", border: "1px solid rgba(76,175,80,0.3)" }}>
+                    <div className="text-2xl font-black mb-0" style={{ color: "#4CAF50" }}>{s.v}</div>
                     <div className="text-xs text-gray-400 uppercase tracking-wide">{s.l}</div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Feature image tiles */}
-              <div className="flex gap-3">
-                {p.chips.map((c) => (
+            {/* Content */}
+            <div className="flex flex-col flex-1 p-6 gap-5">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3"
+                  style={{ backgroundColor: "rgba(76,175,80,0.1)", color: "#4CAF50", border: "1px solid rgba(76,175,80,0.25)" }}>
+                  Energy Intelligence
+                </div>
+                <h3 className="text-3xl font-black text-white leading-tight mb-2">
+                  Find the waste.<br />
+                  <span style={{ color: "#4CAF50" }}>Stop paying for it.</span>
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Yopo connects to your BMS, monitors every system with AI, and pinpoints exactly where energy is being lost. You only pay when we save you money.
+                </p>
+              </div>
+
+              {/* Feature tiles */}
+              <div className="flex gap-2">
+                {energyFeatures.map((c) => (
                   <div key={c.label}
-                    className="relative flex-1 rounded-2xl overflow-hidden group/tile"
-                    style={{ height: "130px", border: `1px solid ${p.accent}33` }}>
-                    {/* Photo */}
-                    <Image
-                      src={c.img}
-                      alt={c.label}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover/tile:scale-110"
-                    />
-                    {/* Dark overlay */}
-                    <div className="absolute inset-0"
-                      style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%)" }} />
-                    {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5"
-                      style={{ background: `linear-gradient(90deg, transparent, ${p.accent}, transparent)` }} />
-                    {/* Label */}
-                    <div className="absolute bottom-0 left-0 right-0 px-3 py-2.5">
+                    className="relative flex-1 rounded-xl overflow-hidden group/tile"
+                    style={{ height: "110px", border: "1px solid rgba(76,175,80,0.2)" }}>
+                    <Image src={c.img} alt={c.label} fill className="object-cover transition-transform duration-500 group-hover/tile:scale-110" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%)" }} />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #4CAF50, transparent)" }} />
+                    <div className="absolute bottom-0 left-0 right-0 px-2 py-2">
                       <span className="text-xs font-bold text-white leading-tight block">{c.label}</span>
                     </div>
                   </div>
@@ -133,15 +93,68 @@ export default function WhatWeDo() {
             </div>
           </div>
 
-          {/* Vertical section label */}
-          <div className={`absolute top-1/2 -translate-y-1/2 ${p.align === "left" ? "right-8" : "left-8"} hidden lg:flex items-center gap-3`}
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg) translateY(50%)" }}>
-            <span className="text-xs font-bold tracking-[0.4em] uppercase opacity-30 text-white">
-              {String(i + 1).padStart(2, "0")} / {products.length}
-            </span>
+          {/* Building Access */}
+          <div className="relative rounded-3xl overflow-hidden flex flex-col"
+            style={{ border: "1px solid rgba(197,158,60,0.2)", background: "rgba(255,255,255,0.02)" }}>
+
+            {/* Background image with overlay */}
+            <div className="relative h-52 overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=85"
+                alt="Modern UAE skyscraper"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0"
+                style={{ background: "linear-gradient(to bottom, rgba(5,14,6,0.3) 0%, rgba(5,14,6,0.95) 100%)" }} />
+
+              {/* Floating stats */}
+              <div className="absolute bottom-4 left-5 flex gap-3">
+                {[{ v: "2s", l: "avg entry" }, { v: "100%", l: "mobile managed" }].map((s) => (
+                  <div key={s.l} className="px-4 py-2.5 rounded-xl"
+                    style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(16px)", border: "1px solid rgba(197,158,60,0.3)" }}>
+                    <div className="text-2xl font-black mb-0" style={{ color: "#C59E3C" }}>{s.v}</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-wide">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col flex-1 p-6 gap-5">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3"
+                  style={{ backgroundColor: "rgba(197,158,60,0.1)", color: "#C59E3C", border: "1px solid rgba(197,158,60,0.25)" }}>
+                  Building Access
+                </div>
+                <h3 className="text-3xl font-black text-white leading-tight mb-2">
+                  Your face is your key.<br />
+                  <span style={{ color: "#C59E3C" }}>Your phone is your intercom.</span>
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Face recognition at every entrance, a resident app for your community, and visitor calls routed straight to your phone. No fobs, no buzzers.
+                </p>
+              </div>
+
+              {/* Feature tiles */}
+              <div className="flex gap-2">
+                {accessFeatures.map((c) => (
+                  <div key={c.label}
+                    className="relative flex-1 rounded-xl overflow-hidden group/tile"
+                    style={{ height: "110px", border: "1px solid rgba(197,158,60,0.2)" }}>
+                    <Image src={c.img} alt={c.label} fill className="object-cover transition-transform duration-500 group-hover/tile:scale-110" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%)" }} />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #C59E3C, transparent)" }} />
+                    <div className="absolute bottom-0 left-0 right-0 px-2 py-2">
+                      <span className="text-xs font-bold text-white leading-tight block">{c.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      ))}
+      </div>
     </section>
   );
 }

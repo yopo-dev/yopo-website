@@ -13,10 +13,10 @@ const SYSTEMS = [
 ];
 
 const ALERTS = [
-  { time: "09:14", msg: "AHU Bank B running outside schedule — 2.3 kWh wasted", level: "warning" },
-  { time: "08:52", msg: "Chiller setpoint optimised — saving est. 18 kW", level: "saving" },
+  { time: "09:14", msg: "AHU Bank B running outside schedule, 2.3 kWh wasted", level: "warning" },
+  { time: "08:52", msg: "Chiller setpoint optimised, saving est. 18 kW", level: "saving" },
   { time: "08:31", msg: "Car park fans: high runtime anomaly detected", level: "alert" },
-  { time: "07:55", msg: "Morning occupancy detected — HVAC pre-cool started", level: "info" },
+  { time: "07:55", msg: "Morning occupancy detected, HVAC pre-cool started", level: "info" },
 ];
 
 // 24 bar chart values (hours 0-23), kWh common area
@@ -82,7 +82,7 @@ export default function DashboardPreview() {
             Your building, in real time.
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Property managers get a single dashboard showing every system, every anomaly, and every saving — updated live.
+            Property managers get a single dashboard showing every system, every anomaly, and every saving, updated live.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export default function DashboardPreview() {
                   <span key={c} className="w-3 h-3 rounded-full" style={{ backgroundColor: c }} />
                 ))}
               </div>
-              <span className="text-green-400 text-xs font-mono opacity-70">yopo.io/dashboard — Marina Heights, Tower B</span>
+              <span className="text-green-400 text-xs font-mono opacity-70">yopo.io/dashboard · Marina Heights, Tower B</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -129,7 +129,7 @@ export default function DashboardPreview() {
 
               {/* Bar chart */}
               <div className="px-5 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
-                <div className="text-gray-500 text-xs mb-3">Common-area energy — today (kWh/hr)</div>
+                <div className="text-gray-500 text-xs mb-3">Common-area energy: today (kWh/hr)</div>
                 <div className="flex items-end gap-0.5 h-16">
                   {BAR_DATA.map((v, i) => {
                     const h = (v / BAR_MAX) * 100;
@@ -156,7 +156,7 @@ export default function DashboardPreview() {
 
               {/* Systems table */}
               <div className="px-5 py-3">
-                <div className="text-gray-500 text-xs mb-3">Building systems — live readings</div>
+                <div className="text-gray-500 text-xs mb-3">Building systems: live readings</div>
                 <div className="space-y-2">
                   {SYSTEMS.map((s, i) => (
                     <div key={s.name} className="flex items-center justify-between py-2 border-b"

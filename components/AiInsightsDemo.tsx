@@ -27,7 +27,7 @@ const FINDINGS = [
   {
     floor: "Basement / Car Park",
     system: "Ventilation Fans",
-    issue: "Fans cycling at 100% after 22:00 — no occupancy",
+    issue: "Fans cycling at 100% after 22:00 with no occupancy",
     saving: "AED 420/day",
     severity: "high",
     delay: 2200,
@@ -99,7 +99,7 @@ export default function AiInsightsDemo() {
             <span style={{ color: "#4CAF50" }}>Find the waste.</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Yopo scans every floor, every system, every data point — and tells you exactly where energy is being lost.
+            Yopo scans every floor, every system, every data point. We tell you exactly where energy is being lost.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export default function AiInsightsDemo() {
                     border: `1px solid ${f.severity === "high" ? "rgba(239,68,68,0.5)" : "rgba(245,158,11,0.5)"}`,
                     color: f.severity === "high" ? "#ef4444" : "#f59e0b",
                   }}>
-                  {f.floor} — {f.system}
+                  {f.floor}: {f.system}
                 </div>
               </div>
             ))}

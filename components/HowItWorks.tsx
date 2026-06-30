@@ -72,7 +72,7 @@ const SCREENS = [
         <p className="text-xs font-bold text-green-400 uppercase tracking-widest mb-1">Building Feed</p>
         {[
           { from: "Management", msg: "Pool closed Fri 10–12 for maintenance", time: "2m ago", dot: "#C59E3C" },
-          { from: "Unit 12B", msg: "Lost keys near the gym — please DM", time: "14m ago", dot: "#4CAF50" },
+          { from: "Unit 12B", msg: "Lost keys near the gym, please DM", time: "14m ago", dot: "#4CAF50" },
           { from: "Management", msg: "Package delivered to reception for 8A", time: "1h ago", dot: "#C59E3C" },
         ].map((item) => (
           <div key={item.from + item.time} className="rounded-xl p-2.5" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -124,7 +124,7 @@ const ACCESS_STEPS = [
       </svg>
     ),
     title: "Visitors call your phone",
-    body: "Intercom rings your mobile — anywhere in the world. See them, talk to them, open the door remotely.",
+    body: "Intercom rings your mobile, anywhere in the world. See them, talk to them, open the door remotely.",
   },
 ];
 
@@ -243,7 +243,7 @@ export default function HowItWorks() {
             <span style={{ color: "#C59E3C" }}>your intercom, your community.</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Yopo turns any building entrance into a smart, connected experience — for residents, visitors, and managers.
+            Yopo turns any building entrance into a smart, connected experience for residents, visitors, and managers.
           </p>
         </div>
 
@@ -351,7 +351,7 @@ export default function HowItWorks() {
             Visitor Journey
           </p>
           <p className="text-white font-bold text-lg mb-6">
-            From pressing the intercom to door open — under 10 seconds.
+            From pressing the intercom to door open: under 10 seconds.
           </p>
           <FlowDiagram active={flowActive} />
         </div>
@@ -362,7 +362,7 @@ export default function HowItWorks() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <p className="text-xs font-bold uppercase tracking-[0.25em]" style={{ color: "#4CAF50" }}>
-              Energy Intelligence — also included
+              Energy Intelligence: also included
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">

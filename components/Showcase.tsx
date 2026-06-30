@@ -17,7 +17,7 @@ function DashboardMockup() {
         <div className="flex items-center justify-between mb-4">
           <div>
             <div className="text-xs text-gray-400 mb-1">Energy Dashboard</div>
-            <div className="text-white font-bold text-sm">Sparkle Towers — Live</div>
+            <div className="text-white font-bold text-sm">Sparkle Towers · Live</div>
           </div>
           <div className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: "#1B5E2040", color: "#4ade80" }}>
             ● Live
@@ -39,7 +39,7 @@ function DashboardMockup() {
         </div>
         {/* Fake chart */}
         <div className="bg-gray-800 rounded-lg p-3 mb-3">
-          <div className="text-gray-400 text-xs mb-3">kWh consumption — last 7 days vs baseline</div>
+          <div className="text-gray-400 text-xs mb-3">kWh consumption: last 7 days vs baseline</div>
           <div className="flex items-end gap-1 h-16">
             {[65, 72, 58, 80, 54, 61, 48].map((h, i) => (
               <div key={i} className="flex-1 flex flex-col justify-end gap-0.5">
@@ -166,7 +166,7 @@ function IntercomMockup() {
       {/* Controls */}
       <div className="p-4">
         <div className="text-white text-xs font-semibold mb-1 text-center">Main Entrance</div>
-        <div className="text-gray-400 text-xs text-center mb-3">Sparkle Towers — Tower A</div>
+        <div className="text-gray-400 text-xs text-center mb-3">Sparkle Towers · Tower A</div>
         <div className="grid grid-cols-2 gap-2">
           <button
             className="py-2 rounded-xl text-xs font-semibold text-white"
@@ -209,7 +209,7 @@ export default function Showcase() {
               Energy intelligence,<br />at a glance
             </h3>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Property managers and OA teams get a live view of energy consumption, verified savings against baseline, and real-time BMS alerts — all in one dashboard.
+              Property managers and OA teams get a live view of energy consumption, verified savings against baseline, and real-time BMS alerts, all in one dashboard.
             </p>
             <ul className="space-y-2">
               {[
